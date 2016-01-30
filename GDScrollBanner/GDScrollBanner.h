@@ -12,7 +12,7 @@
 @interface GDScrollBanner : UIView
 
 
-@property (nonatomic, strong) UIImage *_placeImage;             //placeholder
+@property (nonatomic, strong) UIImage *placeImage;             //placeholder
 
 @property (nonatomic, assign) NSTimeInterval AutoScrollDelay;   //滚动延时
 

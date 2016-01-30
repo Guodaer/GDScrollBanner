@@ -8,6 +8,8 @@
 
 #import "GDScrollBanner.h"
 
+#import "UIImageView+WebCache.h"
+
 #define pageSize 16
 
 #define GDWidth self.frame.size.width
@@ -16,7 +18,7 @@
 
 @interface GDScrollBanner ()<UIScrollViewDelegate>
 {
-
+    
     
 }
 @property (nonatomic, copy) NSArray *imageData;
@@ -49,6 +51,8 @@
     self = [super initWithFrame:frame];
     if ( self) {
         
+        _isNetwork = NO;
+        
         [self createScrollView]; //创建滚动view
         
         [self setImageData:imageNames];//加入本地image
@@ -62,6 +66,21 @@
 #pragma mark - 网络图片
 - (instancetype)initWithFrame:(CGRect)frame WithNetImages:(NSArray *)imageNames {
 
+    if (imageNames.count < 2) {
+        return nil;
+    }
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        _isNetwork = YES;
+        
+        [self createScrollView];
+        
+        [self setImageData:imageNames];
+        
+        [self setMaxImageCount:_imageData.count];
+        
+    }
     return self;
 }
 #pragma mark - 设置数量
@@ -91,22 +110,31 @@
     _scrollView = gdSC;
 }
 - (void)setImageData:(NSArray *)imageNames {
-    //本地
-    NSMutableArray *local = [NSMutableArray arrayWithCapacity:imageNames.count];
-    for (NSString *name in imageNames) {
-        [local addObject:[UIImage imageNamed:name]];
+    
+    
+    if (_isNetwork) {
+        _imageData = [imageNames copy];
+//        [self getImage];
+    }else {
+        //本地
+        NSMutableArray *local = [NSMutableArray arrayWithCapacity:imageNames.count];
+        for (NSString *name in imageNames) {
+            [local addObject:[UIImage imageNamed:name]];
+        }
+        _imageData = [local copy];
     }
-    _imageData = [local copy];
+
+
 
 }
 - (void)initImageView {
     UIImageView *left = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0,GDWidth, GDHeight)];
     UIImageView *center = [[UIImageView alloc] initWithFrame:CGRectMake(GDWidth, 0,GDWidth, GDHeight)];
     UIImageView *right = [[UIImageView alloc] initWithFrame:CGRectMake(GDWidth * 2, 0,GDWidth, GDHeight)];
-    
+
     center.userInteractionEnabled = YES;
     [center addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewDidTap)]];
-    
+
     [_scrollView addSubview:left];
     [_scrollView addSubview:center];
     [_scrollView addSubview:right];
@@ -138,7 +166,7 @@
 }
 #pragma mark - 定时器
 - (void)setUpTimer {
-    if (_AutoScrollDelay < 0.5) return;
+    if (_AutoScrollDelay < 0.5) return;//太快了
     
     _timer = [NSTimer timerWithTimeInterval:_AutoScrollDelay target:self selector:@selector(scorll) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
@@ -149,14 +177,24 @@
 }
 #pragma mark - 给复用的图赋值
 - (void)changeImageLeft:(NSInteger)LeftIndex center:(NSInteger)centerIndex right:(NSInteger)rightIndex {
-    
-    _leftImageView.image = _imageData[LeftIndex];
-    _centerImageView.image = _imageData[centerIndex];
-    _rightImageView.image = _imageData[rightIndex];
-    
+
+    if (_isNetwork) {
+        
+        [_leftImageView sd_setImageWithURL:[NSURL URLWithString:_imageData[LeftIndex]] placeholderImage:_placeImage];
+        [_centerImageView sd_setImageWithURL:[NSURL URLWithString:_imageData[centerIndex]] placeholderImage:_placeImage];
+        [_rightImageView sd_setImageWithURL:[NSURL URLWithString:_imageData[rightIndex]] placeholderImage:_placeImage];
+
+        
+    }else {
+        _leftImageView.image = _imageData[LeftIndex];
+        _centerImageView.image = _imageData[centerIndex];
+        _rightImageView.image = _imageData[rightIndex];
+
+        
+    }
+
     [_scrollView setContentOffset:CGPointMake(GDWidth, 0)];
 }
-
 
 #pragma mark - 滚动代理
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
