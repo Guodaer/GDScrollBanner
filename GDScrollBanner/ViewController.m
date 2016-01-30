@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "GDScrollBanner.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    GDScrollBanner *scrol = [[GDScrollBanner alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200) WithLocalImages:@[@"1",@"2",@"3",@"4",@"5"]];
+    scrol.AutoScrollDelay = 2;
+    
+    [scrol setSmartImgdidSelectAtIndex:^(NSInteger index) {
+        NSLog(@"点到我了 %ld",index);
+        
+    }];
+    [self.view addSubview:scrol];
+    
 }
 
 - (void)didReceiveMemoryWarning {

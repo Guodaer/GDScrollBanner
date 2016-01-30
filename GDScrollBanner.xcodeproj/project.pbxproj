@@ -15,6 +15,12 @@
 		B81C00D91C5B774200BDCC29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B81C00D71C5B774200BDCC29 /* LaunchScreen.storyboard */; };
 		B81C00E41C5B774200BDCC29 /* GDScrollBannerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B81C00E31C5B774200BDCC29 /* GDScrollBannerTests.m */; };
 		B81C00EF1C5B774200BDCC29 /* GDScrollBannerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B81C00EE1C5B774200BDCC29 /* GDScrollBannerUITests.m */; };
+		B81C00FE1C5B7A2100BDCC29 /* GDScrollBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = B81C00FD1C5B7A2100BDCC29 /* GDScrollBanner.m */; };
+		B81C01031C5C564000BDCC29 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = B81C00FF1C5C564000BDCC29 /* 1.png */; };
+		B81C01041C5C564000BDCC29 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = B81C01001C5C564000BDCC29 /* 2.png */; };
+		B81C01051C5C564000BDCC29 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = B81C01011C5C564000BDCC29 /* 3.png */; };
+		B81C01061C5C564000BDCC29 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = B81C01021C5C564000BDCC29 /* 4.png */; };
+		B81C01081C5C569100BDCC29 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = B81C01071C5C569100BDCC29 /* 5.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,13 @@
 		B81C00EA1C5B774200BDCC29 /* GDScrollBannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GDScrollBannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B81C00EE1C5B774200BDCC29 /* GDScrollBannerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDScrollBannerUITests.m; sourceTree = "<group>"; };
 		B81C00F01C5B774200BDCC29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B81C00FC1C5B7A2100BDCC29 /* GDScrollBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDScrollBanner.h; sourceTree = "<group>"; };
+		B81C00FD1C5B7A2100BDCC29 /* GDScrollBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDScrollBanner.m; sourceTree = "<group>"; };
+		B81C00FF1C5C564000BDCC29 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		B81C01001C5C564000BDCC29 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		B81C01011C5C564000BDCC29 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		B81C01021C5C564000BDCC29 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		B81C01071C5C569100BDCC29 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +114,17 @@
 		B81C00C81C5B774200BDCC29 /* GDScrollBanner */ = {
 			isa = PBXGroup;
 			children = (
+				B81C00FF1C5C564000BDCC29 /* 1.png */,
+				B81C01001C5C564000BDCC29 /* 2.png */,
+				B81C01011C5C564000BDCC29 /* 3.png */,
+				B81C01021C5C564000BDCC29 /* 4.png */,
+				B81C01071C5C569100BDCC29 /* 5.png */,
 				B81C00CC1C5B774200BDCC29 /* AppDelegate.h */,
 				B81C00CD1C5B774200BDCC29 /* AppDelegate.m */,
 				B81C00CF1C5B774200BDCC29 /* ViewController.h */,
 				B81C00D01C5B774200BDCC29 /* ViewController.m */,
+				B81C00FC1C5B7A2100BDCC29 /* GDScrollBanner.h */,
+				B81C00FD1C5B7A2100BDCC29 /* GDScrollBanner.m */,
 				B81C00D21C5B774200BDCC29 /* Main.storyboard */,
 				B81C00D51C5B774200BDCC29 /* Assets.xcassets */,
 				B81C00D71C5B774200BDCC29 /* LaunchScreen.storyboard */,
@@ -207,6 +227,7 @@
 				TargetAttributes = {
 					B81C00C51C5B774200BDCC29 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 85753DZ5FY;
 					};
 					B81C00DE1C5B774200BDCC29 = {
 						CreatedOnToolsVersion = 7.2;
@@ -243,6 +264,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B81C01041C5C564000BDCC29 /* 2.png in Resources */,
+				B81C01031C5C564000BDCC29 /* 1.png in Resources */,
+				B81C01061C5C564000BDCC29 /* 4.png in Resources */,
+				B81C01051C5C564000BDCC29 /* 3.png in Resources */,
+				B81C01081C5C569100BDCC29 /* 5.png in Resources */,
 				B81C00D91C5B774200BDCC29 /* LaunchScreen.storyboard in Resources */,
 				B81C00D61C5B774200BDCC29 /* Assets.xcassets in Resources */,
 				B81C00D41C5B774200BDCC29 /* Main.storyboard in Resources */,
@@ -273,6 +299,7 @@
 				B81C00D11C5B774200BDCC29 /* ViewController.m in Sources */,
 				B81C00CE1C5B774200BDCC29 /* AppDelegate.m in Sources */,
 				B81C00CB1C5B774200BDCC29 /* main.m in Sources */,
+				B81C00FE1C5B7A2100BDCC29 /* GDScrollBanner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +438,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GDScrollBanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.chaui.cn.GDScrollBanner;
@@ -422,6 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GDScrollBanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.chaui.cn.GDScrollBanner;
